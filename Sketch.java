@@ -1,8 +1,11 @@
 import processing.core.PApplet;
 import processing.core.PFont;
+import processing.core.PImage;
+
 
 public class Sketch extends PApplet {
-	
+	PImage heart;
+
   float[] circleX = new float[25];
 	float[] circleY = new float[25];
   boolean[] circleHideStatus = new boolean[25];
@@ -28,7 +31,7 @@ public class Sketch extends PApplet {
 
   int fallSpeed = 0;
 
-  int life = 5;
+  int life = 3;
   boolean intangibility = false;
   boolean wasHit = false;
 
@@ -49,7 +52,7 @@ public class Sketch extends PApplet {
       circleY[i] = random(height);
       circleHideStatus[i] = false;
     }
-    deathText = createFont("Arial",16,true); 
+
   }
 
   /** 
@@ -58,6 +61,8 @@ public class Sketch extends PApplet {
    */
   public void setup() {
     background(210, 255, 173);
+    deathText = createFont("Times New Roman",48,true); 
+    heart = loadImage("PlayerHeart2.png");
   }
 
   /**
@@ -68,6 +73,10 @@ public class Sketch extends PApplet {
        
     if (playerHideStatus == false){
       background(50);
+
+      for(int displayHearts = 0; displayHearts < life; displayHearts ++){
+        image(heart, (displayHearts*25) + 25, 45);
+      }
 
       if (upPressed) {
         y_speed -= 3.5;
@@ -160,7 +169,7 @@ public class Sketch extends PApplet {
       if (fadeWhite == 255){
         fill(0);
         textFont(deathText, 48);  
-        text("YOU ARE DEAD",400, 400);
+        text("YOU DIED",290, 400);
       }
     }
     
@@ -183,7 +192,6 @@ public class Sketch extends PApplet {
     if (life == 0){
       print("you are dead! ");
       playerHideStatus = true;
-      
     }
 
   }
