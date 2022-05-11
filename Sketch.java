@@ -193,8 +193,9 @@ public class Sketch extends PApplet {
       print("you are dead! ");
       playerHideStatus = true;
     }
-
   }
+  /** keyPressed checks for the WASD keys to move the character, as well as keyCoded UP and DOWN to control the falling speed of the snowflakes.
+   */
   public void keyPressed(){
     if (key == 119){
       upPressed = true;
@@ -217,6 +218,9 @@ public class Sketch extends PApplet {
       }
     }
   }
+  /** Checks for the release of the WASD keys to make the movement of the character stop.
+   * 
+   */
   public void keyReleased() {
     if (key == 119){
       upPressed = false;
@@ -229,8 +233,6 @@ public class Sketch extends PApplet {
     }
     if (key == 97){
       rightPressed = false;
-    }
-    if (key == 101){
     }
   }
 }
