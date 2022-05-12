@@ -69,7 +69,7 @@ public class Sketch extends PApplet {
    * Called repeatedly, anything drawn to the screen goes here
    */
   public void draw() {
-    System.out.println(fallSpeed + " " + life + " " + intangibilityTimer + " " + intangibility);
+    // System.out.println(fallSpeed + " " + life + " " + intangibilityTimer + " " + intangibility);
        
     if (playerHideStatus == false){
       background(50);
